@@ -39,16 +39,17 @@ SentryCrashIntegration ()
 - (void)installWithOptions:(nonnull SentryOptions *)options
 {
     self.options = options;
-    [self startCrashHandler];
+    NSString *customDirectory = options.customCacheDirectory;
+    [self startCrashHandler:customDirectory];
     [self configureScope];
 }
 
-- (void)startCrashHandler
+- (void)startCrashHandler:(NSString *)customCacheDirectory
 {
     static dispatch_once_t onceToken = 0;
     dispatch_once(&onceToken, ^{
         installation = [[SentryCrashInstallationReporter alloc] init];
-        [installation install];
+        [installation install:customCacheDirectory];
         [installation sendAllReports];
     });
 }

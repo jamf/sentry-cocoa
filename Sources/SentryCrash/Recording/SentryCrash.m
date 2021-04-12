@@ -52,7 +52,6 @@
 SentryCrash ()
 
 @property (nonatomic, readwrite, retain) NSString *bundleName;
-@property (nonatomic, readwrite, retain) NSString *basePath;
 
 @end
 
