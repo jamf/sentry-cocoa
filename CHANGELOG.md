@@ -1,5 +1,8 @@
 # Changelog
 
+## 5.2.3
+- feat: Add customCacheDirectory to SentrySDK
+
 ## 5.2.2
 
 - feat: Add crashedLastRun to SentrySDK #688
